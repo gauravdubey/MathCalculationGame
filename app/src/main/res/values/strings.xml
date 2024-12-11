@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MathCalculationGame</string>
+    <string name="add">Addition</string>
+    <string name="sub">Subtraction</string>
+    <string name="mul">Multiplication</string>
+    <string name="div">Division</string>
+    <string name="category">Category</string>
+    <string name="empty_ans">Write an answer or click the Next button</string>
+    <string name="game_over">Game Over</string>
 </resources>
