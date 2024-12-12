@@ -2,6 +2,8 @@ package com.gaurav.mathcalculationgame.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,6 +19,7 @@ import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -30,17 +33,23 @@ import com.gaurav.mathcalculationgame.R
 
 @Composable
 fun TextForQuestion(question: String) {
-    Text(
-        text = question,
-        fontSize = 28.sp,
-        color = Color.White,
-        textAlign = TextAlign.Center,
+    Box(
         modifier = Modifier
-            .background(color = colorResource(id = R.color.blue))
-            .size(340.dp, 80.dp)
-            .wrapContentHeight()
-    )
+            .fillMaxSize()
+            .padding(start = 30.dp, end = 30.dp)
+            .height(80.dp)
+            .background(color = colorResource(id = R.color.blue)),
+        contentAlignment = Alignment.Center
+    ) {
+        Text(
+            text = question,
+            fontSize = 26.sp,
+            color = Color.White,
+            textAlign = TextAlign.Center // Ensure proper horizontal alignment
+        )
+    }
 }
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -48,7 +57,7 @@ fun TextFieldForAnswer(answer: MutableState<String>) {
     TextField(
         value = answer.value,
         onValueChange = { answer.value = it },
-        label = { Text(text = "Enter your answer...") },
+        placeholder = { Text(text = "Enter your answer...") },
         colors = TextFieldDefaults.textFieldColors(
             focusedLabelColor = Color.White,
             unfocusedLabelColor = Color.White,
@@ -56,12 +65,13 @@ fun TextFieldForAnswer(answer: MutableState<String>) {
             focusedIndicatorColor = Color.Transparent,
             cursorColor = Color.White,
             focusedTextColor = Color.White,
+            unfocusedPlaceholderColor = Color.White,
             containerColor = colorResource(id = R.color.blue)
         ),
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
-            .padding(start = 20.dp, end = 20.dp),
+            .padding(start = 30.dp, end = 30.dp),
         textStyle = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center),
         shape = RoundedCornerShape(0),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
