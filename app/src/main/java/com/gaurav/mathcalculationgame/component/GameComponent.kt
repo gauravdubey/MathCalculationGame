@@ -58,7 +58,10 @@ fun TextFieldForAnswer(answer: MutableState<String>) {
             focusedTextColor = Color.White,
             containerColor = colorResource(id = R.color.blue)
         ),
-        modifier = Modifier.fillMaxWidth().height(80.dp).padding(start = 20.dp, end = 20.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(80.dp)
+            .padding(start = 20.dp, end = 20.dp),
         textStyle = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center),
         shape = RoundedCornerShape(0),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)

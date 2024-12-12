@@ -61,8 +61,8 @@ fun FirstScreen(navController:NavController) {
 
                 Spacer(modifier = Modifier.height(100.dp))
                 Text(
-                    text = "Math Calculation Game",
-                    fontSize = 24.sp,
+                    text = "Math Game",
+                    fontSize = 28.sp,
                     modifier = Modifier
                         .graphicsLayer(alpha = 0.99f) // Enables advanced drawing
                         .background(
@@ -86,27 +86,27 @@ fun FirstScreen(navController:NavController) {
 
                     Button(
                         onClick = { navController.navigate(AppRoutes.SecondPage.createRoute("Add")) },
-                        modifier = Modifier.size(180.dp, 100.dp),
+                        modifier = Modifier.size(180.dp, 120.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF8239E9)),
                         border = BorderStroke(2.dp, Color.White),
                         shape = RoundedCornerShape(10.dp)
                     ) {
                         Text(
                             text = "Addition",
-                            fontSize = 20.sp,
+                            fontSize = 24.sp,
                         )
                     }
                     Spacer(modifier = Modifier.width(1.dp))
                     Button(
                         onClick = { navController.navigate(AppRoutes.SecondPage.createRoute("Sub")) },
-                        modifier = Modifier.size(200.dp, 100.dp),
+                        modifier = Modifier.size(180.dp, 120.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF8239E9)),
                         border = BorderStroke(2.dp, Color.White),
                         shape = RoundedCornerShape(10.dp)
                     ) {
                         Text(
                             text = "Subtraction",
-                            fontSize = 20.sp,
+                            fontSize = 24.sp,
                         )
                     }
                 }
@@ -119,27 +119,27 @@ fun FirstScreen(navController:NavController) {
                 ) {
                     Button(
                         onClick = { navController.navigate(AppRoutes.SecondPage.createRoute("Mul")) },
-                        modifier = Modifier.size(180.dp, 100.dp),
+                        modifier = Modifier.size(180.dp, 120.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF8239E9)),
                         border = BorderStroke(2.dp, Color.White),
                         shape = RoundedCornerShape(10.dp)
                     ) {
                         Text(
-                            text = "Multiplication",
-                            fontSize = 20.sp,
+                            text = "Product",
+                            fontSize = 24.sp,
                         )
                     }
-                    Spacer(modifier = Modifier.width(1.dp))
+                    Spacer(modifier = Modifier.width(2.dp))
                     Button(
                         onClick = { navController.navigate(AppRoutes.SecondPage.createRoute("Div")) },
-                        modifier = Modifier.size(200.dp, 100.dp),
+                        modifier = Modifier.size(180.dp, 120.dp),
                         colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF8239E9)),
                         border = BorderStroke(2.dp, Color.White),
                         shape = RoundedCornerShape(10.dp)
                     ) {
                         Text(
                             text = "Division",
-                            fontSize = 20.sp,
+                            fontSize = 24.sp,
                         )
                     }
                 }

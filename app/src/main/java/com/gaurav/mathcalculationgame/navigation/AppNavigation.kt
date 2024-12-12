@@ -8,12 +8,17 @@ import androidx.navigation.navArgument
 import com.gaurav.mathcalculationgame.component.FirstScreen
 import com.gaurav.mathcalculationgame.component.ResultScreen
 import com.gaurav.mathcalculationgame.component.SecondScreen
+import com.gaurav.mathcalculationgame.component.SplashScreen
 
 @Composable
 fun AppNavigation(
     navController: NavHostController
 ) {
-    NavHost(navController = navController, startDestination = AppRoutes.FirstPage.route) {
+    NavHost(navController = navController, startDestination = AppRoutes.SplashPage.route) {
+
+        composable(AppRoutes.SplashPage.route) {
+            SplashScreen(navController)
+        }
         composable(AppRoutes.FirstPage.route) {
             FirstScreen(navController)
         }
@@ -24,8 +29,12 @@ fun AppNavigation(
             val selectedCategory = backStackEntry.arguments?.getString("category") ?: ""
             SecondScreen(navController=navController, category = selectedCategory)
         }
-        composable(AppRoutes.ResultPage.route) {
-            ResultScreen()
+        composable(
+            AppRoutes.ResultPage.route,
+            arguments = listOf(navArgument("score"){ defaultValue=0 })
+        ) { backStackEntry ->
+            val finalScore = backStackEntry.arguments?.getInt("score")?:0
+            ResultScreen(navController=navController, score = finalScore)
 
         }
     }

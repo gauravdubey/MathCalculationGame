@@ -26,13 +26,13 @@ import androidx.compose.ui.draw.paint
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.gaurav.mathcalculationgame.R
 import com.gaurav.mathcalculationgame.generateQuestion
+import com.gaurav.mathcalculationgame.navigation.AppRoutes
 import java.util.Locale
 
 
@@ -58,12 +58,14 @@ fun SecondScreen(navController: NavController, category: String) {
     val totalTimeInMillis = remember { mutableStateOf(30000L) }
     val timer = remember {
         mutableStateOf(
-            object : CountDownTimer(totalTimeInMillis.value,1000){
+            object : CountDownTimer(totalTimeInMillis.value, 1000) {
                 override fun onTick(millisUntilFinished: Long) {
 
-                    remainingTime = String.format(Locale.getDefault(),"%02d",millisUntilFinished/1000)
+                    remainingTime =
+                        String.format(Locale.getDefault(), "%02d", millisUntilFinished / 1000)
 
                 }
+
                 override fun onFinish() {
                     cancel()
                     myQuestion = "Sorry, Time is up!"
@@ -122,18 +124,22 @@ fun SecondScreen(navController: NavController, category: String) {
 
                     ButtonOKorNext(buttonText = "Submit", isEnable = isEnable,
                         myOnClick = {
-                            if (myAnswer.toString().isEmpty()){
-                                Toast.makeText(context, "Write an answer or click the Next button",Toast.LENGTH_SHORT).show()
-                            }else{
+                            if (myAnswer.value.isEmpty()) {
+                                Toast.makeText(
+                                    context,
+                                    "Write an answer or click the Next button",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            } else {
                                 timer.value.cancel()
                                 isEnable = false
                                 if (myAnswer.value.toInt() == correctAnswer) {
-                                   score+=10
-                                    myQuestion="Hurray!! Your answer is correct"
-                                    myAnswer.value=""
-                                }else{
-                                    life-=1
-                                    myQuestion="Oops!! Your answer is wrong"
+                                    score += 10
+                                    myQuestion = "Hurray!! Your answer is correct"
+                                    myAnswer.value = ""
+                                } else {
+                                    life -= 1
+                                    myQuestion = "Oops!! Your answer is wrong"
 
                                 }
 
@@ -144,14 +150,19 @@ fun SecondScreen(navController: NavController, category: String) {
                         myOnClick = {
                             timer.value.cancel()
                             timer.value.start()
-                            if (life==0){
-                                myQuestion="Game Over!!"
-                                Toast.makeText(context, "Game Over!!",Toast.LENGTH_SHORT).show()
-                            }else{
+                            if (life == 0) {
+
+                                myQuestion = "Game Over!!"
+                                Toast.makeText(context, "Game Over!!", Toast.LENGTH_SHORT).show()
+                                navController.navigate(AppRoutes.ResultPage.createRoute(score = score)) {
+                                    popUpTo(AppRoutes.FirstPage.route) { inclusive = false }
+                                }
+
+                            } else {
                                 val newResultList = generateQuestion(category)
                                 myQuestion = newResultList[0].toString()
                                 correctAnswer = newResultList[1] as Int
-                                myAnswer.value=""
+                                myAnswer.value = ""
                                 isEnable = true
                             }
                         })
