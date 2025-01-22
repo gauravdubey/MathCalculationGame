@@ -8,12 +8,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.material3.TextFieldDefaults
@@ -51,27 +49,28 @@ fun TextForQuestion(question: String) {
 }
 
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TextFieldForAnswer(answer: MutableState<String>) {
     TextField(
         value = answer.value,
         onValueChange = { answer.value = it },
         placeholder = { Text(text = "Enter your answer...") },
-        colors = TextFieldDefaults.textFieldColors(
-            focusedLabelColor = Color.White,
-            unfocusedLabelColor = Color.White,
-            unfocusedIndicatorColor = Color.Transparent, // Removes unfocused underline
-            focusedIndicatorColor = Color.Transparent,
-            cursorColor = Color.White,
-            focusedTextColor = Color.White,
-            unfocusedPlaceholderColor = Color.White,
-            containerColor = colorResource(id = R.color.blue)
+        colors = TextFieldDefaults.colors(
+            focusedContainerColor = colorResource(id = R.color.blue), // Background color when focused
+            unfocusedContainerColor = colorResource(id = R.color.blue), // Background color when unfocused
+            focusedLabelColor = Color.White, // Label color when focused
+            unfocusedLabelColor = Color.White, // Label color when unfocused
+            focusedIndicatorColor = Color.Transparent, // Indicator color when focused
+            unfocusedIndicatorColor = Color.Transparent, // Indicator color when unfocused
+            cursorColor = Color.White, // Cursor color
+            focusedTextColor = Color.White, // Text color when focused
+            unfocusedTextColor = Color.White // Text color when unfocused
         ),
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
             .padding(start = 30.dp, end = 30.dp),
+        singleLine = true,
         textStyle = TextStyle(fontSize = 28.sp, textAlign = TextAlign.Center),
         shape = RoundedCornerShape(0),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
