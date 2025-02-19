@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.component
+package com.gaurav.mathcalculationgame.presentation.screens
 
 import android.os.CountDownTimer
 import android.widget.Toast
@@ -39,8 +39,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.gaurav.mathcalculationgame.R
-import com.gaurav.mathcalculationgame.generateQuestion
-import com.gaurav.mathcalculationgame.navigation.AppRoutes
+import com.gaurav.mathcalculationgame.data.generateQuestion
+import com.gaurav.mathcalculationgame.presentation.component.ButtonOKorNext
+import com.gaurav.mathcalculationgame.presentation.component.TextFieldForAnswer
+import com.gaurav.mathcalculationgame.presentation.component.TextForQuestion
+import com.gaurav.mathcalculationgame.presentation.component.TopBarView
+import com.gaurav.mathcalculationgame.presentation.navigation.AppRoutes
 import java.util.Locale
 
 

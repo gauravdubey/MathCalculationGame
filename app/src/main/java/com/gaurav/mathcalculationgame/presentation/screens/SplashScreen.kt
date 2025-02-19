@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.component
+package com.gaurav.mathcalculationgame.presentation.screens
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -23,7 +23,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.gaurav.mathcalculationgame.R
-import com.gaurav.mathcalculationgame.navigation.AppRoutes
+import com.gaurav.mathcalculationgame.presentation.navigation.AppRoutes
 import kotlinx.coroutines.delay
 
 @Composable

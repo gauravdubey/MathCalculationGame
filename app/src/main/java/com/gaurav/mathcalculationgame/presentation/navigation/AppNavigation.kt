@@ -1,14 +1,14 @@
-package com.gaurav.mathcalculationgame.navigation
+package com.gaurav.mathcalculationgame.presentation.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.gaurav.mathcalculationgame.component.FirstScreen
-import com.gaurav.mathcalculationgame.component.ResultScreen
-import com.gaurav.mathcalculationgame.component.SecondScreen
-import com.gaurav.mathcalculationgame.component.SplashScreen
+import com.gaurav.mathcalculationgame.presentation.screens.FirstScreen
+import com.gaurav.mathcalculationgame.presentation.screens.ResultScreen
+import com.gaurav.mathcalculationgame.presentation.screens.SecondScreen
+import com.gaurav.mathcalculationgame.presentation.screens.SplashScreen
 
 @Composable
 fun AppNavigation(
@@ -23,7 +23,7 @@ fun AppNavigation(
             FirstScreen(navController)
         }
         composable(
-            route=AppRoutes.SecondPage.route,
+            route= AppRoutes.SecondPage.route,
             arguments = listOf(navArgument("category") { defaultValue = "" }))
         { backStackEntry ->
             val selectedCategory = backStackEntry.arguments?.getString("category") ?: ""

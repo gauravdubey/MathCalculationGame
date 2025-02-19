@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.ui.theme
+package com.gaurav.mathcalculationgame.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

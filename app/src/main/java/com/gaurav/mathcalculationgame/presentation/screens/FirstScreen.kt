@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.component
+package com.gaurav.mathcalculationgame.presentation.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
@@ -35,7 +35,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.gaurav.mathcalculationgame.R
-import com.gaurav.mathcalculationgame.navigation.AppRoutes
+import com.gaurav.mathcalculationgame.presentation.component.TopBarView
+import com.gaurav.mathcalculationgame.presentation.navigation.AppRoutes
 
 @Composable
 fun FirstScreen(navController:NavController) {

@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.navigation
+package com.gaurav.mathcalculationgame.presentation.navigation
 
 sealed class AppRoutes(val route: String) {
     object SplashPage : AppRoutes("splash_screen")

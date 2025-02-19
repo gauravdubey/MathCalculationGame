@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame
+package com.gaurav.mathcalculationgame.presentation.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,8 +9,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.gaurav.mathcalculationgame.navigation.AppNavigation
-import com.gaurav.mathcalculationgame.ui.theme.MathCalculationGameTheme
+import com.gaurav.mathcalculationgame.presentation.navigation.AppNavigation
+import com.gaurav.mathcalculationgame.presentation.theme.MathCalculationGameTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

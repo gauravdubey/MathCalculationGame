@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.component
+package com.gaurav.mathcalculationgame.presentation.component
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons

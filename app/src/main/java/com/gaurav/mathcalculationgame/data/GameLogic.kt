@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame
+package com.gaurav.mathcalculationgame.data
 
 import kotlin.random.Random
 

@@ -1,6 +1,8 @@
-package com.gaurav.mathcalculationgame.component
+package com.gaurav.mathcalculationgame.presentation.screens
 
 import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,13 +30,14 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.gaurav.mathcalculationgame.R
-import com.gaurav.mathcalculationgame.navigation.AppRoutes
+import com.gaurav.mathcalculationgame.presentation.navigation.AppRoutes
 
 @Composable
 fun ResultScreen(navController: NavController, score: Int) {
     // UI for result screen
 
-    val myContext = LocalContext.current as Activity
+    val context = LocalContext.current
+    val activity = context.findActivity()
 
     Column(
         modifier = Modifier
@@ -87,7 +90,7 @@ fun ResultScreen(navController: NavController, score: Int) {
             Button(
                 onClick = {
 
-                    myContext.finish()
+                    activity?.finish()
                 },
                 modifier = Modifier.size(150.dp, 50.dp),
                 colors = ButtonDefaults.buttonColors(containerColor = Color.White),
@@ -102,4 +105,13 @@ fun ResultScreen(navController: NavController, score: Int) {
             }
         }
     }
+}
+
+fun Context.findActivity(): Activity? {
+    var context = this
+    while (context is ContextWrapper) {
+        if (context is Activity) return context
+        context = context.baseContext
+    }
+    return null
 }

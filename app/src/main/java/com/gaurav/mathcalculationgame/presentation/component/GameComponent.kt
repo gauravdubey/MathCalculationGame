@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.component
+package com.gaurav.mathcalculationgame.presentation.component
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background

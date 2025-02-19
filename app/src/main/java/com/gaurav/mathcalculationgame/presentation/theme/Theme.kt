@@ -1,4 +1,4 @@
-package com.gaurav.mathcalculationgame.ui.theme
+package com.gaurav.mathcalculationgame.presentation.theme
 
 import android.app.Activity
 import android.os.Build
